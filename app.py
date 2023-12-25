@@ -72,7 +72,7 @@ def main():
     with st.form("expense_form", clear_on_submit=True):
         date = st.date_input("Date")
         description = st.text_input("Description")
-        amount = st.number_input("Amount", min_value=0.0, format="%f")
+        amount = st.number_input("Amount", min_value=0, format="%f")
         submit_button = st.form_submit_button("Add Expense")
 
 
@@ -85,7 +85,7 @@ def main():
     if expenses:
         st.write("### Recorded Expenses")
         for expense in expenses:
-            st.write(f"{expense['date']} - {expense['description']}: ${expense['amount']}")
+            st.write(f"{expense['date']} - {expense['description']}: {expense['amount']}")
 
     # Download expenses as JSON
     if st.button("Download Expenses as JSON"):
